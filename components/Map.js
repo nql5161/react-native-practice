@@ -9,13 +9,6 @@ const MapScreen = (props) => {
     const [longitude, setLongitude] = useState(-75.1741);
 
     const getLatitudeHandler = (enteredLatitude) => {
-        // if (enteredLatitude){
-        //     Alert.alert(
-        //         'Empty latitude',
-        //         'Please enter a valid latitude',
-        //         [{text: 'OK'}]
-        //     )
-        // }
         setLatitude(enteredLatitude);
     }
 
