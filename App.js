@@ -1,25 +1,32 @@
 import React, { useState } from 'react';
-import { StyleSheet, View, Button, FlatList, TextInput, TouchableOpacity, Text } from 'react-native';
-import {createAppContainer} from 'react-navigation';
-import {createDrawerNavigator} from 'react-navigation-drawer';
+import { StyleSheet, View, Button, FlatList, TextInput, TouchableOpacity, Text, Image } from 'react-native';
+import { createAppContainer } from 'react-navigation';
+import { createDrawerNavigator } from 'react-navigation-drawer';
+import TouchableIcon from './components/TouchableIcon';
 import Map from './components/Map';
 // import HomeScreen from './views/HomeScreen';
 import MapScreen from './components/Map';
+import CameraScreen from './components/CameraScreen';
 const HomeScreen = (props) => {
   return (
-      <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+    <React.Fragment>
+      <View style={styles.screen}>
         <TouchableOpacity onPress={props.navigation.openDrawer}>
-          <Text>Open Drawer</Text>
+          <Image source={require('./assets/icons8-menu-50.png')} style={styles.image} />
         </TouchableOpacity>
-        <Text style={{ fontWeight: 'bold', marginTop: 20 }}>Home</Text>
       </View>
-    );
+      <View style={styles.screen}>
+        <Text>Hi Canada!</Text>
+      </View>
+    </React.Fragment>
+  );
 }
 
 const DrawerNavigator = createDrawerNavigator(
   {
     Home: HomeScreen,
     Map: MapScreen,
+    Camera: CameraScreen
   },
   {
     hideStatusBar: true,
@@ -34,7 +41,14 @@ const DrawerNavigator = createDrawerNavigator(
 
 const styles = StyleSheet.create({
   screen: {
-    padding: 50
+    padding: 50,
+    flex: 1,
+    flexDirection: 'row',
+    flexWrap: 'wrap'
+  },
+  image: {
+    aspectRatio: .5,
+    resizeMode: 'contain'
   },
   drawer: {
     shadowColor: '#000000',
