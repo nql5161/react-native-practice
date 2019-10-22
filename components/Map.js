@@ -1,10 +1,9 @@
 import MapView from 'react-native-maps';
 import React, { useState } from 'react';
-import { View, Text, StyleSheet, Button, Alert, TouchableOpacity } from 'react-native';
+import { View, Text, StyleSheet, Button, Alert, TouchableOpacity, Image } from 'react-native';
 import { TextInput } from 'react-native-gesture-handler';
 
 const MapScreen = (props) => {
-    const [coordinates, setCoordinates] = useState([39.9541, -75.1741]);
     const [latitude, setLatitude] = useState(39.9541);
     const [longitude, setLongitude] = useState(-75.1741);
 
@@ -18,11 +17,10 @@ const MapScreen = (props) => {
 
     return (
         <React.Fragment>
-            <View style={{ flex: .2, justifyContent: 'center', alignItems: 'left' }}>
+            <View style={{ flex: .2}}>
                 <TouchableOpacity onPress={props.navigation.openDrawer}>
-                    <Text>Open Drawer</Text>
+                    <Image style={styles.image} source={require('../assets/icons8-menu-50.png')} />
                 </TouchableOpacity>
-                <Text style={{ fontWeight: 'bold', marginTop: 20 }}>Map</Text>
             </View>
             <MapView
                 style={styles.mapContainer}
@@ -33,14 +31,16 @@ const MapScreen = (props) => {
                     longitudeDelta: 0.0421
                 }}
                 showsUserLocation={true} />
-            <View style={styles.latitudeContainer}>
-                <TextInput placeholder="Enter latitude" onChangeText={getLatitudeHandler}/>
-            </View>
-            <View style={styles.longitudeContainer}>
-                <TextInput placeholder="Enter longitude" onChangeText={getLatitudeHandler}/>
+            <View style={styles.inputContainer}>
+                <View style={styles.latitudeContainer}>
+                    <TextInput placeholder="Enter latitude" onChangeText={getLatitudeHandler} />
+                </View>
+                <View style={styles.longitudeContainer}>
+                    <TextInput placeholder="Enter longitude" onChangeText={getLongitudeHandler} />
+                </View>
             </View>
             <View>
-                <Button title="iOS Alert!" onPress={() => Alert.alert('iOS alert!')}/>
+                <Button title="iOS Alert!" onPress={() => Alert.alert('iOS alert!')} />
             </View>
         </React.Fragment>
 
@@ -49,7 +49,7 @@ const MapScreen = (props) => {
 
 const styles = StyleSheet.create({
     mapContainer: {
-        flex: .8
+        flex: 1
     },
     latitudeContainer: {
         alignItems: "center",
@@ -58,7 +58,16 @@ const styles = StyleSheet.create({
     longitudeContainer: {
         alignItems: "center",
         flexDirection: "column"
-    }
+    },
+    inputContainer: {
+        flex: .5,
+        paddingTop: 10,
+        paddingBottom: 10
+    },
+    image: {
+        aspectRatio: .5,
+        resizeMode: 'contain'
+    },
 })
 
 export default MapScreen;
