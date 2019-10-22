@@ -2,11 +2,9 @@ import React, { useState } from 'react';
 import { StyleSheet, View, Button, FlatList, TextInput, TouchableOpacity, Text, Image } from 'react-native';
 import { createAppContainer } from 'react-navigation';
 import { createDrawerNavigator } from 'react-navigation-drawer';
-import TouchableIcon from './components/TouchableIcon';
-import Map from './components/Map';
-// import HomeScreen from './views/HomeScreen';
 import MapScreen from './components/Map';
 import CameraScreen from './components/CameraScreen';
+import CalendarScroll from './components/Calendar';
 const HomeScreen = (props) => {
   return (
     <React.Fragment>
@@ -26,7 +24,9 @@ const DrawerNavigator = createDrawerNavigator(
   {
     Home: HomeScreen,
     Map: MapScreen,
-    Camera: CameraScreen
+    Camera: CameraScreen,
+    Calendar: CalendarScroll
+    // EditImage: EditImageDemo,
   },
   {
     hideStatusBar: true,
