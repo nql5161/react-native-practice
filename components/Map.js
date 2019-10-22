@@ -34,12 +34,10 @@ const MapScreen = (props) => {
                 }}
                 showsUserLocation={true} />
             <View style={styles.latitudeContainer}>
-                <TextInput placeholder="Enter latitude"/>
-                <Button title="Set latitude" onPress={() => getLatitudeHandler(props)} />
+                <TextInput placeholder="Enter latitude" onChangeText={getLatitudeHandler}/>
             </View>
             <View style={styles.longitudeContainer}>
-                <TextInput placeholder="Enter longitude"/>
-                <Button title="Set longitude" onPress={() => getLongitudeHandler(props)} />
+                <TextInput placeholder="Enter longitude" onChangeText={getLatitudeHandler}/>
             </View>
             <View>
                 <Button title="iOS Alert!" onPress={() => Alert.alert('iOS alert!')}/>
