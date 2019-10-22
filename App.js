@@ -5,16 +5,16 @@ import { createDrawerNavigator } from 'react-navigation-drawer';
 import MapScreen from './components/Map';
 import CameraScreen from './components/CameraScreen';
 import CalendarScroll from './components/Calendar';
+import OfflineIndicator from './components/OfflineIndicator';
+
 const HomeScreen = (props) => {
   return (
     <React.Fragment>
+      <OfflineIndicator />
       <View style={styles.screen}>
         <TouchableOpacity onPress={props.navigation.openDrawer}>
           <Image source={require('./assets/icons8-menu-50.png')} style={styles.image} />
         </TouchableOpacity>
-      </View>
-      <View style={styles.screen}>
-        <Text>Hi Canada!</Text>
       </View>
     </React.Fragment>
   );
@@ -25,7 +25,8 @@ const DrawerNavigator = createDrawerNavigator(
     Home: HomeScreen,
     Map: MapScreen,
     Camera: CameraScreen,
-    Calendar: CalendarScroll
+    Calendar: CalendarScroll,
+    Offline: OfflineIndicator
     // EditImage: EditImageDemo,
   },
   {
