@@ -15,3 +15,5 @@ const TouchableIcon = (props) => {
   const styles = StyleSheet.create({
       
   })
+
+  export default TouchableIcon
