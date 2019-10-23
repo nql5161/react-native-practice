@@ -6,19 +6,18 @@ const OfflineIndicator = () => {
 
     const netInfo = useNetInfo();
 
-    const [connected, setConnected] = useState(false);
-
+    const isConnected = netInfo.isConnected;
     // const listenForChange = NetInfo.addEventListener(status => {
     //     setIsConnected(status.isConnected);
     // })
 
-    const connectedText = netInfo.isConnected ? "Connected" : "Offline";
+    const connectedText = netInfo.isConnected ? "You are online" : "You are offline";
 
     return (
         <React.Fragment>
-            <View style={styles.offlineContainer}>
-                <Text style={styles.offlineText}>
-                    Connection status: {connectedText}
+            <View style={ isConnected ? '' : styles.offlineContainer}>
+                <Text style={ isConnected ? '' : styles.offlineText}>
+                    {isConnected ? '' : connectedText}
                 </Text>
             </View>
         </React.Fragment>
