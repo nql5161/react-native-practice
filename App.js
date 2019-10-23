@@ -6,6 +6,7 @@ import MapScreen from './components/Map';
 import CameraScreen from './components/CameraScreen';
 import CalendarScroll from './components/Calendar';
 import OfflineIndicator from './components/OfflineIndicator';
+import AsyncExample from './components/ReadFromFile';
 
 const HomeScreen = (props) => {
   return (
@@ -26,8 +27,8 @@ const DrawerNavigator = createDrawerNavigator(
     Map: MapScreen,
     Camera: CameraScreen,
     Calendar: CalendarScroll,
-    Offline: OfflineIndicator
-    // EditImage: EditImageDemo,
+    Offline: OfflineIndicator,
+    Save: AsyncExample
   },
   {
     hideStatusBar: true,
