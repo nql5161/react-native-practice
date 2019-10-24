@@ -29,6 +29,7 @@ const OfflineIndicator = () => {
 
 const styles = StyleSheet.create({
     offlineContainer: {
+      flex: .5,
       backgroundColor: '#b52424',
       height: 30,
       justifyContent: 'center',
@@ -36,7 +37,6 @@ const styles = StyleSheet.create({
       flexDirection: 'row',
       width: "100%",
       position: 'absolute',
-      top: 30
     },
     offlineText: { 
       color: '#fff'
