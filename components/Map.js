@@ -17,11 +17,6 @@ const MapScreen = (props) => {
 
     return (
         <React.Fragment>
-            <View style={{ flex: .2}}>
-                <TouchableOpacity onPress={props.navigation.openDrawer}>
-                    <Image style={styles.image} source={require('../assets/icons8-menu-50.png')} />
-                </TouchableOpacity>
-            </View>
             <MapView
                 style={styles.mapContainer}
                 region={{
